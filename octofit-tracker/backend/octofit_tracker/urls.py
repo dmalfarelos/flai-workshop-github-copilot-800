@@ -19,7 +19,6 @@ from django.urls import path, include
 from rest_framework import routers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.reverse import reverse
 from .views import (
     UserViewSet, TeamViewSet, ActivityViewSet,
     LeaderboardViewSet, WorkoutViewSet
@@ -49,12 +48,12 @@ def api_root(request, format=None):
     return Response({
         'message': 'Welcome to the OctoFit Tracker API',
         'endpoints': {
-            'users': reverse('user-list', request=request, format=format),
-            'teams': reverse('team-list', request=request, format=format),
-            'activities': reverse('activity-list', request=request, format=format),
-            'leaderboard': reverse('leaderboard-list', request=request, format=format),
-            'workouts': reverse('workout-list', request=request, format=format),
-            'admin': base_url + '/admin/',
+            'users': f"{base_url}/api/users/",
+            'teams': f"{base_url}/api/teams/",
+            'activities': f"{base_url}/api/activities/",
+            'leaderboard': f"{base_url}/api/leaderboard/",
+            'workouts': f"{base_url}/api/workouts/",
+            'admin': f"{base_url}/admin/",
         },
         'documentation': {
             'users': 'Manage user profiles and authentication',
