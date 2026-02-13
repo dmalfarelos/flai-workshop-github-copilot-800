@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'octofit_tracker',
     'rest_framework',
+    'djongo',
     'corsheaders',
     'django_filters',
 ]
